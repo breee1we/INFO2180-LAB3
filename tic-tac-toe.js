@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function(){
         square.classList.add("square");
 
         square.addEventListener("click", function(){
+          if (gamestate[index]!=="")
+            return;
           gamestate[index]=currentplayer;
           square.textContent=currentplayer;
           square.classList.add(currentplayer);
