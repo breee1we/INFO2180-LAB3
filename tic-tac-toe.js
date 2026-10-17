@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
     const squares= document.querySelectorAll("#board div");
-    const status= document.getElementById("Status");
+    const status= document.getElementById("status");
+    const newGameBtn= document.querySelector(".btn");
+    const startMessage= status.textContent;
 
     let currentplayer="X";
     let gamestate= ["","","","","","","","",""];
@@ -37,6 +39,18 @@ document.addEventListener("DOMContentLoaded", function(){
             square.classList.remove("hover");
         });
     });
+
+    newGameBtn.addEventListener("click", function(){
+        gamestate=["","","","","","","","",""];
+        currentplayer= "X";
+
+        squares.forEach(function(square){
+            square.textContent= "";
+            square.classList.remove("X", "O");
+        });
+        status.textContent= startMessage;
+        status.classList.remove("you-won");
+    });
     function checkWinner(){
         for(const line of winningLines){
             const a= line[0];
@@ -46,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function(){
             if (gamestate[a]!== "" &&
                 gamestate[a]===gamestate[b]&&
                 gamestate[a]=== gamestate[c]){
-                status.textContent= " Congratulations! " + gamestate[a]+ " is the winner! ";
+                status.textContent= " Congratulations! " + gamestate[a]+ " is the winner!";
                 status.classList.add("you-won");
                 return;
                 }
