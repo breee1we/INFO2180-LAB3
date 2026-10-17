@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let gamestate= ["","","","","","","","",""];
 
     squares.forEach(function(square, index){
-        square.classList.add("square",);
+        square.classList.add("square");
 
         square.addEventListener("click", function(){
           gamestate[index]=currentplayer;
@@ -18,6 +18,13 @@ document.addEventListener("DOMContentLoaded", function(){
             currentplayer="X";
         }
 
+        });
+        square.addEventListener("mouseover", function(){
+            square.classList.add("Hover");
+        });
+
+        sqaure.addEventListener("mouseout", function(){
+            square.classList.remove("hover");
         });
     });
 });
