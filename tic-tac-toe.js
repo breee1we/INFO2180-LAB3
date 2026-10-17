@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
         });
         square.addEventListener("mouseover", function(){
-            square.classList.add("Hover");
+            square.classList.add("hover");
         });
 
-        sqaure.addEventListener("mouseout", function(){
+        square.addEventListener("mouseout", function(){
             square.classList.remove("hover");
         });
     });
